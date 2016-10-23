@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+           <!--Sidebar content-->
+
+           Event Type:
+            <form name="myForm">
+                <label>
+                    <input type="radio" ng-model="$ctrl.events.event" value="CLICK_LINK">
+                    Click Link
+                </label><br/>
+                <label>
+                    <input type="radio" ng-model="$ctrl.events.event" value="REGISTER">
+                    Register
+                </label><br/>
+                <label>
+                    <input type="radio" ng-model="$ctrl.events.event" value="GO_BACK">
+                    Go Back
+                </label><br/>
+                <label>
+                    <input type="radio" ng-model="$ctrl.events.event" value="SUBMIT_FORM">
+                    Submit Form
+                </label><br/>
+                <label>
+                    <input type="radio" ng-model="$ctrl.events.event" value="ARRIVE">
+                    Arrive
+                </label><br/>
+            </form>
+
+            Worker:
+            <input ng-model="$ctrl.events.user_id">
+
+        </div>
+        <div class="col-md-10">
+            <ul>
+                <li ng-repeat="event in $ctrl.events | filter: {event: $ctrl.events.event} | filter: {user_id: $ctrl.events.user_id}">
+                    <span>{{event.event}}</span>
+                    <p>{{event.user_id}}</p>
+                    <p>{{event.created_at}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
